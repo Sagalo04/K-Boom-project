@@ -146,8 +146,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         //Debug.Log(i);
                     }
                     var data = StringSerializationAPI.Serialize(typeof(List<float>), parts);
-                    var payLoad = $"{{\"data\":\"{data}\"}}";
-                    RestClient.Post("http://localhost:5000/unity", payLoad).Then(
+                    var Email = FirebaseAuthHandler.Email;
+                    var payLoad = $"{{\"user\":\"{Email}\",\"data\":{data}}}";
+                    RestClient.Post("http://localhost:5000/points", payLoad).Then(
                     response =>
             {
                 string S = response.Text;

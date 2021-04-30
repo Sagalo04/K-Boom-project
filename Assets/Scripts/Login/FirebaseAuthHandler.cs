@@ -1,15 +1,13 @@
 ﻿using Proyecto26;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class FirebaseAuthHandler
 {
     private const string ApiKey = "AIzaSyBNWF1e7VFUbH9fgDxDGl90NQouk1MjMYw";
-
-    public static void SingInWithToken(string token, string providerId)
+    public static string Email = "";
+    public static void SingInWithToken(string token,TMP_Text ErrorDominio, string providerId)
     {
         var payLoad =
             $"{{\"postBody\":\"id_token={token}&providerId={providerId}\",\"requestUri\":\"http://localhost\",\"returnIdpCredential\":true,\"returnSecureToken\":true}}";
@@ -23,11 +21,14 @@ public class FirebaseAuthHandler
 
                 if (data.email.Contains("@uao.edu.co"))
                 {
+                    ErrorDominio.gameObject.SetActive(false);
+                    Email = data.email;
                     Debug.Log(data.email);
                     SceneManager.LoadScene(1);
                 }
                 else
                 {
+                    ErrorDominio.gameObject.SetActive(true);
                     Debug.Log("No pertenece al dominio UAO");
                 }
 

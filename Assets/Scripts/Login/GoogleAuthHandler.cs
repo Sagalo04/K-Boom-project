@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public static class GoogleAuthHandler 
@@ -20,13 +22,16 @@ public static class GoogleAuthHandler
     /// </summary>
     /// <param name="code"> Auth Code </param>
     /// <param name="callback"> What to do after this is successfully executed </param>
-    public static void ExchangeAuthCodeWithIdToken(string code, Action<string> callback)
+    public static void ExchangeAuthCodeWithIdToken(string code,TMP_Text ErrorToken, Action<string> callback)
     {
         RestClient.Post($"https://oauth2.googleapis.com/token?code={code}&client_id={ClientId}&client_secret={ClientSecret}&redirect_uri=urn:ietf:wg:oauth:2.0:oob&grant_type=authorization_code", null).Then(
-            response => {
+            response =>
+            {
                 var data = StringSerializationAPI.Deserialize(typeof(GoogleIdTokenResponse), response.Text) as GoogleIdTokenResponse;
                 callback(data.id_token);
-            }).Catch(Debug.Log);
+                ErrorToken.gameObject.SetActive(false);
+            }).Catch(err => ErrorToken.gameObject.SetActive(true));
+        //(err => EditorUtility.DisplayDialog("Error", err.Message, "Ok"));
     }
 }
 
