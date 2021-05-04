@@ -1,40 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Proyecto26;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class StartAtwood : MonoBehaviour
 {
+#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
     public Camera camera;
+#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
 
     public LayerMask layerMask;
 
-    public RectTransform pickupImageRoot;
-
     public GameObject MessagePanel;
 
-    public GameObject cube, cube1;
+    public GameObject MessagePanel2;
+
+    public GameObject Weight, Weight2;
 
     private Item itemBeingPickUp;
 
     private FirstPersonController firstPersonController;
 
+    private int cont = 0;
+
+    private List<float> points = new List<float>();
+
+
     // Update is called once per frame
     void Update()
     {
+
+        if (Weight.transform.localPosition.y > 0 && Weight.transform.localPosition.y < 0.92)
+        {
+            points.Add(Weight.transform.localPosition.y);
+        }
+
         SelectItemPickedFromRay();
-        if (HasItemTargetted())
+        if (HasItemTargetted() && cont == 0)
         {
             OpenMessagePanel();
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                MoveItemToInventory();
+                StartMedition();
+            }
+        }else if(HasItemTargetted() && cont == 1)
+        {
+            OpenMessagePanel2();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SendData();
             }
         }
         else
         {
             CloseMessagePanel();
+            CloseMessagePanel2();
         }
     }
 
@@ -45,14 +67,23 @@ public class StartAtwood : MonoBehaviour
 
     public void OpenMessagePanel()
     {
-        Debug.Log("Entra");
         MessagePanel.SetActive(true);
+    }
 
+    public void OpenMessagePanel2()
+    {
+        MessagePanel2.SetActive(true);
     }
 
     public void CloseMessagePanel()
     {
         MessagePanel.SetActive(false);
+
+    }
+
+    public void CloseMessagePanel2()
+    {
+        MessagePanel2.SetActive(false);
 
     }
 
@@ -84,12 +115,25 @@ public class StartAtwood : MonoBehaviour
 
     }
 
-    private void MoveItemToInventory()
+    private void StartMedition()
     {
-        //Destroy(itemBeingPickUp.gameObject);        //FirstPersonController.item[itemBeingPickUp.name] = true;
-        cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        //cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        //itemBeingPickUp = null;
+        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        cont++;
+        itemBeingPickUp = null;
+        CloseMessagePanel();
+    }
+
+    private void SendData()
+    {
+        var data = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        var Email = FirebaseAuthHandler.Email;
+        var payLoad = $"{{\"user\":\"{Email}\",\"data\":{data}}}";
+        RestClient.Post("http://localhost:5000/points", payLoad).Then(
+            response =>
+            {
+                string S = response.Text;
+                Debug.Log(S);
+            }).Catch(Debug.Log);
     }
 }

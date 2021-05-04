@@ -11,7 +11,10 @@ namespace FullSerializer {
 
 namespace FullSerializer.Internal.DirectConverters {
     public class Keyframe_DirectConverter : fsDirectConverter<Keyframe> {
+        [Obsolete]
+#pragma warning disable CS0809 // El miembro obsoleto invalida un miembro no obsoleto
         protected override fsResult DoSerialize(Keyframe model, Dictionary<string, fsData> serialized) {
+#pragma warning restore CS0809 // El miembro obsoleto invalida un miembro no obsoleto
             var result = fsResult.Success;
 
             result += SerializeMember(serialized, null, "time", model.time);
@@ -23,7 +26,10 @@ namespace FullSerializer.Internal.DirectConverters {
             return result;
         }
 
+        [Obsolete]
+#pragma warning disable CS0809 // El miembro obsoleto invalida un miembro no obsoleto
         protected override fsResult DoDeserialize(Dictionary<string, fsData> data, ref Keyframe model) {
+#pragma warning restore CS0809 // El miembro obsoleto invalida un miembro no obsoleto
             var result = fsResult.Success;
 
             var t0 = model.time;

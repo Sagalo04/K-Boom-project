@@ -25,13 +25,13 @@ public class OpenMenu : MonoBehaviour
 
             if (state)
             {
-                MessagePanel.GetComponent<RectTransform>().localPosition = new Vector3(361,180f,0);
-                MessagePanel2.GetComponent<RectTransform>().localPosition = new Vector3(189, 258f, 0);
+                MessagePanel.GetComponent<RectTransform>().localPosition = new Vector3(560f,98f,0);
+                MessagePanel2.GetComponent<RectTransform>().localPosition = new Vector3(235f, 323f, 0);
             }
             else
             {
-                MessagePanel.GetComponent<RectTransform>().localPosition = new Vector3(659, 180f, 0);
-                MessagePanel2.GetComponent<RectTransform>().localPosition = new Vector3(487, 258f, 0);
+                MessagePanel.GetComponent<RectTransform>().localPosition = new Vector3(1361f, 98f, 0);
+                MessagePanel2.GetComponent<RectTransform>().localPosition = new Vector3(886f, 323f, 0);
             }
 
         }

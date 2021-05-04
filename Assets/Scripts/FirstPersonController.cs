@@ -49,10 +49,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public static Dictionary<string, bool> item = new Dictionary<string, bool>();
 
-        public GameObject Weight;
-
-        private List<float> parts = new List<float>();
-
         // Use this for initialization
         private void Start()
         {
@@ -79,11 +75,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (Weight.transform.localPosition.y > 0 && Weight.transform.localPosition.y < 0.92)
-            {
-                parts.Add(Weight.transform.localPosition.y);
-                //Debug.Log(Weight.transform.localPosition.y);
-            }
 
             //Debug.Log(item["Cuerda"].ToString());
             //Debug.Log(item.ToString());
@@ -141,21 +132,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 if (m_Jump)
                 {
-                    foreach (float i in parts)
-                    {
-                        //Debug.Log(i);
-                    }
-                    var data = StringSerializationAPI.Serialize(typeof(List<float>), parts);
-                    var Email = FirebaseAuthHandler.Email;
-                    var payLoad = $"{{\"user\":\"{Email}\",\"data\":{data}}}";
-                    RestClient.Post("http://localhost:5000/points", payLoad).Then(
-                    response =>
-            {
-                string S = response.Text;
-                Debug.Log(S);
-
-            }).Catch(Debug.Log);
-                    //Debug.Log(data);
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
                     m_Jump = false;
