@@ -57,8 +57,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             item.Add("Polea", false);
             item.Add("Masa", false);
 
-
-
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;

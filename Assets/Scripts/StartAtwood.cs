@@ -44,6 +44,11 @@ public class StartAtwood : MonoBehaviour
             points.Add(Weight.transform.localPosition.y);
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseQR();
+        }
+
         SelectItemPickedFromRay();
         if (HasItemTargetted() && cont == 0)
         {
@@ -93,6 +98,7 @@ public class StartAtwood : MonoBehaviour
     public void CloseQR()
     {
         QR.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void SelectItemPickedFromRay()
@@ -137,7 +143,7 @@ public class StartAtwood : MonoBehaviour
         var data = StringSerializationAPI.Serialize(typeof(List<float>), points);
         var Email = FirebaseAuthHandler.Email;
         var payLoad = $"{{\"user\":\"{Email}\",\"data\":{data}}}";
-        RestClient.Post("http://localhost:5000/points", payLoad).Then(
+        RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
             response =>
             {
                 string S = response.Text;
@@ -150,11 +156,10 @@ public class StartAtwood : MonoBehaviour
     private void ShowQR()
     {
         QR.SetActive(true);
-
         var Email = FirebaseAuthHandler.Email;
-        Texture2D myQR = generateQR($"http://localhost:5000/{Email}");
+        Texture2D myQR = generateQR($"https://kboombackend.herokuapp.com/point/{Email}");
         var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
-
+        Time.timeScale = 0;
         img.sprite = mySprite;
     }
 
