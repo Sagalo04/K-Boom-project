@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Proyecto26;
 using UnityStandardAssets.Characters.FirstPerson;
+using ZXing;
+using ZXing.QrCode;
+using UnityEngine.UI;
 
 public class StartAtwood : MonoBehaviour
 {
@@ -16,6 +19,10 @@ public class StartAtwood : MonoBehaviour
 
     public GameObject MessagePanel2;
 
+    public GameObject MessagePanel3;
+
+    public GameObject QR;
+
     public GameObject Weight, Weight2;
 
     private Item itemBeingPickUp;
@@ -26,6 +33,7 @@ public class StartAtwood : MonoBehaviour
 
     private List<float> points = new List<float>();
 
+    public Image img;
 
     // Update is called once per frame
     void Update()
@@ -39,7 +47,7 @@ public class StartAtwood : MonoBehaviour
         SelectItemPickedFromRay();
         if (HasItemTargetted() && cont == 0)
         {
-            OpenMessagePanel();
+            OpenMessagePanels(MessagePanel);
 
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -47,16 +55,22 @@ public class StartAtwood : MonoBehaviour
             }
         }else if(HasItemTargetted() && cont == 1)
         {
-            OpenMessagePanel2();
+            OpenMessagePanels(MessagePanel2);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SendData();
+            }
+        }else if (HasItemTargetted() && cont == 2)
+        {
+            OpenMessagePanels(MessagePanel3);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                ShowQR();
             }
         }
         else
         {
             CloseMessagePanel();
-            CloseMessagePanel2();
         }
     }
 
@@ -65,26 +79,20 @@ public class StartAtwood : MonoBehaviour
         return itemBeingPickUp != null;
     }
 
-    public void OpenMessagePanel()
+    public void OpenMessagePanels(GameObject MessagePanel)
     {
         MessagePanel.SetActive(true);
     }
-
-    public void OpenMessagePanel2()
-    {
-        MessagePanel2.SetActive(true);
-    }
-
     public void CloseMessagePanel()
     {
         MessagePanel.SetActive(false);
-
+        MessagePanel2.SetActive(false);
+        MessagePanel3.SetActive(false);
     }
 
-    public void CloseMessagePanel2()
+    public void CloseQR()
     {
-        MessagePanel2.SetActive(false);
-
+        QR.SetActive(false);
     }
 
     private void SelectItemPickedFromRay()
@@ -135,5 +143,43 @@ public class StartAtwood : MonoBehaviour
                 string S = response.Text;
                 Debug.Log(S);
             }).Catch(Debug.Log);
+        cont++;
+        CloseMessagePanel();
     }
+
+    private void ShowQR()
+    {
+        QR.SetActive(true);
+
+        var Email = FirebaseAuthHandler.Email;
+        Texture2D myQR = generateQR($"http://localhost:5000/{Email}");
+        var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
+
+        img.sprite = mySprite;
+    }
+
+    private static Color32[] Encode(string textForEncoding, int width, int height)
+    {
+        var writer = new BarcodeWriter
+        {
+            Format = BarcodeFormat.QR_CODE,
+            Options = new QrCodeEncodingOptions
+            {
+                Height = height,
+                Width = width
+            }
+        };
+        return writer.Write(textForEncoding);
+    }
+
+    public Texture2D generateQR(string text)
+    {
+        var encoded = new Texture2D(256, 256);
+        var color32 = Encode(text, encoded.width, encoded.height);
+        encoded.SetPixels32(color32);
+        encoded.Apply();
+        return encoded;
+    }
+
+
 }
