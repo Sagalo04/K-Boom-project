@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 #pragma warning disable 618, 649
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -47,6 +48,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public Image Mission1_1;
+        public Image Mission1_2;
+        public Image Mission1_3;
+
+        public Sprite Check;
+
         public static Dictionary<string, bool> item = new Dictionary<string, bool>();
 
         // Use this for initialization
@@ -74,6 +81,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
 
+            if(item["Cuerda"] == true)
+            {
+                Mission1_1.sprite = Check;
+            }
+            if (item["Polea"] == true)
+            {
+                Mission1_2.sprite = Check;
+            }
+            if (item["Masa"] == true)
+            {
+                Mission1_3.sprite = Check;
+            }
             //Debug.Log(item["Cuerda"].ToString());
             //Debug.Log(item.ToString());
             RotateView();
