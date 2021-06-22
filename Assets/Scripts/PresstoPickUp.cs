@@ -17,7 +17,6 @@ public class PresstoPickUp : MonoBehaviour
 
     private Item itemBeingPickUp;
 
-    private FirstPersonController firstPersonController;
 
     // Update is called once per frame
     void Update()
@@ -90,6 +89,7 @@ public class PresstoPickUp : MonoBehaviour
         Destroy(itemBeingPickUp.gameObject);
         FirstPersonController.item[itemBeingPickUp.name] = true;
         itemBeingPickUp = null;
+        ProgressBar.current = ProgressBar.current + 34;
     }
 
 
