@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 4037e3bf1f7264d4d825f8fd3edbc379
+timeCreated: 1513723384
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Details
+    100004: DoorBottom
+    100006: Exterior
+    100008: Hemi
+    100010: Interior
+    100012: Shutter.003
+    100014: Shutter.004
+    100016: Supports
+    100018: Supports.001
+    100020: HeadQuarters
+    100022: Plane
+    100024: Shutter
+    100026: Stairs
+    100028: Stairs.001
+    100030: GuardTower
+    100032: Shutter.001
+    100034: Shutter.002
+    100036: Shutter.005
+    100038: Shutter.006
+    100040: Shutter.007
+    100042: StairSupports
+    400000: //RootNode
+    400002: Details
+    400004: DoorBottom
+    400006: Exterior
+    400008: Hemi
+    400010: Interior
+    400012: Shutter.003
+    400014: Shutter.004
+    400016: Supports
+    400018: Supports.001
+    400020: HeadQuarters
+    400022: Plane
+    400024: Shutter
+    400026: Stairs
+    400028: Stairs.001
+    400030: GuardTower
+    400032: Shutter.001
+    400034: Shutter.002
+    400036: Shutter.005
+    400038: Shutter.006
+    400040: Shutter.007
+    400042: StairSupports
+    2300000: //RootNode
+    2300002: Details
+    2300004: DoorBottom
+    2300006: Exterior
+    2300008: Interior
+    2300010: Shutter.003
+    2300012: Shutter.004
+    2300014: Supports
+    2300016: Supports.001
+    2300018: HeadQuarters
+    2300020: Plane
+    2300022: Shutter
+    2300024: Stairs
+    2300026: Stairs.001
+    2300028: GuardTower
+    2300030: Shutter.001
+    2300032: Shutter.002
+    2300034: Shutter.005
+    2300036: Shutter.006
+    2300038: Shutter.007
+    2300040: StairSupports
+    3300000: //RootNode
+    3300002: Details
+    3300004: DoorBottom
+    3300006: Exterior
+    3300008: Interior
+    3300010: Shutter.003
+    3300012: Shutter.004
+    3300014: Supports
+    3300016: Supports.001
+    3300018: HeadQuarters
+    3300020: Plane
+    3300022: Shutter
+    3300024: Stairs
+    3300026: Stairs.001
+    3300028: GuardTower
+    3300030: Shutter.001
+    3300032: Shutter.002
+    3300034: Shutter.005
+    3300036: Shutter.006
+    3300038: Shutter.007
+    3300040: StairSupports
+    4300000: Cube
+    4300002: Supports.001
+    4300004: DoorBottom
+    4300006: Details
+    4300008: Interior
+    4300010: Supports
+    4300012: Exterior
+    4300014: Shutter.004
+    4300016: Shutter.003
+    4300018: Stairs.001
+    4300020: Plane
+    4300022: HeadQuarters
+    4300024: Stairs
+    4300026: Shutter
+    4300028: StairSupports
+    4300030: GuardTower
+    4300032: Shutter.007
+    4300034: Shutter.006
+    4300036: Shutter.005
+    4300038: Shutter.002
+    4300040: Shutter.001
+  materials:
+    importMaterials: 0
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 2
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
