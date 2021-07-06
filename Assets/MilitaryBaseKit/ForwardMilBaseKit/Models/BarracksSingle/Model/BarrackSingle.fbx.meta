@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 7d39b3b99fa955447ab0d2c0ba3d6b63
+timeCreated: 1512914708
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Details
+    100004: DoorBottom
+    100006: Exterior
+    100008: FrontSteps
+    100010: Hemi
+    100012: Interior
+    100014: Shutter.003
+    100016: Shutter.004
+    100018: Supports
+    100020: Windows
+    100022: Shutter
+    100024: Shutter2
+    100026: Door
+    100028: Windows.001
+    100030: Window
+    100032: Window2
+    400000: //RootNode
+    400002: Details
+    400004: DoorBottom
+    400006: Exterior
+    400008: FrontSteps
+    400010: Hemi
+    400012: Interior
+    400014: Shutter.003
+    400016: Shutter.004
+    400018: Supports
+    400020: Windows
+    400022: Shutter
+    400024: Shutter2
+    400026: Door
+    400028: Windows.001
+    400030: Window
+    400032: Window2
+    2300000: Details
+    2300002: DoorBottom
+    2300004: Exterior
+    2300006: FrontSteps
+    2300008: Interior
+    2300010: Shutter.003
+    2300012: Shutter.004
+    2300014: Supports
+    2300016: Windows
+    2300018: Shutter
+    2300020: Shutter2
+    2300022: Door
+    2300024: Windows.001
+    2300026: Window
+    2300028: Window2
+    3300000: Details
+    3300002: DoorBottom
+    3300004: Exterior
+    3300006: FrontSteps
+    3300008: Interior
+    3300010: Shutter.003
+    3300012: Shutter.004
+    3300014: Supports
+    3300016: Windows
+    3300018: Shutter
+    3300020: Shutter2
+    3300022: Door
+    3300024: Windows.001
+    3300026: Window
+    3300028: Window2
+    4300000: DoorBottom
+    4300002: Details
+    4300004: FrontSteps
+    4300006: Windows
+    4300008: Interior
+    4300010: Supports
+    4300012: Exterior
+    4300014: Shutter.004
+    4300016: Shutter.003
+    4300018: Shutter
+    4300020: Shutter2
+    4300022: Windows.001
+    4300024: Door
+    4300026: Window2
+    4300028: Window
+  materials:
+    importMaterials: 0
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 2
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 5
+    secondaryUVHardAngle: 66
+    secondaryUVPackMargin: 1
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
