@@ -39,14 +39,17 @@ public class StartAtwood : MonoBehaviour
     void Update()
     {
 
-        if (Weight.transform.localPosition.y > 0 && Weight.transform.localPosition.y < 0.92)
+        if (Weight2.transform.localPosition.y > -32 && Weight2.transform.localPosition.y < -9)
         {
-            points.Add(Weight.transform.localPosition.y);
+            points.Add(Weight2.transform.localPosition.y);
         }
+        if (Weight2.transform.localPosition.y > -9) Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CloseQR();
+            Time.timeScale = 1;
         }
 
         SelectItemPickedFromRay();
@@ -71,6 +74,7 @@ public class StartAtwood : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 ShowQR();
+                Time.timeScale = 0;
             }
         }
         else
@@ -131,8 +135,11 @@ public class StartAtwood : MonoBehaviour
 
     private void StartMedition()
     {
-        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+
         cont++;
         itemBeingPickUp = null;
         CloseMessagePanel();
@@ -157,7 +164,7 @@ public class StartAtwood : MonoBehaviour
     {
         QR.SetActive(true);
         var Email = FirebaseAuthHandler.Email;
-        Texture2D myQR = generateQR($"https://kboomfront.tinanano19.repl.co/{Email}");
+        Texture2D myQR = generateQR($"https://kboomfront.vercel.app/{Email}");
         var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
         Time.timeScale = 0;
         img.sprite = mySprite;

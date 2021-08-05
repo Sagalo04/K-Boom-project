@@ -117,6 +117,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+        public void Construct()
+        {
+            if(item["Masa"] == true && item["Polea"] == true && item["Cuerda"] == true)
+            {
+
+            }
+        }
+
 
         private void PlayLandingSound()
         {
