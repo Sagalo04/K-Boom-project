@@ -6,6 +6,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 using ZXing;
 using ZXing.QrCode;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class StartAtwood : MonoBehaviour
 {
@@ -32,8 +34,13 @@ public class StartAtwood : MonoBehaviour
     private int cont = 0;
 
     private List<float> points = new List<float>();
+    private List<float> timePoints = new List<float>();
 
     public Image img;
+
+    public TMP_Text textqr;
+
+    private float timestart = 0;
 
     // Update is called once per frame
     void Update()
@@ -41,7 +48,11 @@ public class StartAtwood : MonoBehaviour
 
         if (Weight2.transform.localPosition.y > -32 && Weight2.transform.localPosition.y < -9)
         {
+
+            timePoints.Add(timestart);
+            timestart += Time.deltaTime;
             points.Add(Weight2.transform.localPosition.y);
+
         }
         if (Weight2.transform.localPosition.y > -9) Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -147,9 +158,10 @@ public class StartAtwood : MonoBehaviour
 
     private void SendData()
     {
-        var data = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        var dataY = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        var dataX = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
         var Email = FirebaseAuthHandler.Email;
-        var payLoad = $"{{\"user\":\"{Email}\",\"data\":{data}}}";
+        var payLoad = $"{{\"user\":\"{Email}\",\"dataY\":{dataY},\"dataX\":{dataX}}}";
         RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
             response =>
             {
@@ -165,9 +177,12 @@ public class StartAtwood : MonoBehaviour
         QR.SetActive(true);
         var Email = FirebaseAuthHandler.Email;
         Texture2D myQR = generateQR($"https://kboomfront.vercel.app/{Email}");
+        textqr.text = $"https://kboomfront.vercel.app/{Email}";
         var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
         Time.timeScale = 0;
         img.sprite = mySprite;
+        Debug.Log(timePoints.Count);
+        Debug.Log(points.Count);
     }
 
     private static Color32[] Encode(string textForEncoding, int width, int height)
