@@ -24,7 +24,7 @@ public class FirebaseAuthHandler
                     ErrorDominio.gameObject.SetActive(false);
                     Email = data.email;
                     //Debug.Log(data.email);
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene(1);
                 }
                 else
                 {

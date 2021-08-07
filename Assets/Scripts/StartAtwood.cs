@@ -40,7 +40,7 @@ public class StartAtwood : MonoBehaviour
 
     public TMP_Text textqr;
 
-    private float timestart = 0;
+    private double timestart = 0;
 
     // Update is called once per frame
     void Update()
@@ -49,8 +49,9 @@ public class StartAtwood : MonoBehaviour
         if (Weight2.transform.localPosition.y > -32 && Weight2.transform.localPosition.y < -9)
         {
 
-            timePoints.Add(timestart);
-            timestart += Time.deltaTime;
+            timePoints.Add((float)timestart);
+            var timeaux = (double)Time.deltaTime;
+            timestart += System.Math.Round(timeaux, 3);
             points.Add(Weight2.transform.localPosition.y);
 
         }
