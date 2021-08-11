@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -35,6 +36,7 @@ public class Timer : MonoBehaviour
         string auxtimer = "";
         if (segundosrestantes < 0)
         {
+            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
             segundosrestantes = segundosrestantes * -1;
             auxtimer += "-";
             auxtimer += ((int)segundosrestantes / 60).ToString("00") + ":";
