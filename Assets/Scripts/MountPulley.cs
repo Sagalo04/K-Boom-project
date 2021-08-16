@@ -14,6 +14,7 @@ public class MountPulley : MonoBehaviour
    /* public RectTransform pickupImageRoot;*/
 
     public GameObject MessagePanel;
+    public GameObject activador;
 
     private Item itemBeingPickUp;
 
@@ -26,7 +27,16 @@ public class MountPulley : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                MoveItemToInventory();
+                activador.SetActive(true);
+                FirstPersonController.item["Masa"] = false;
+                FirstPersonController.item["Polea"] = false;
+                FirstPersonController.item["Cuerda"] = false;
+                MessagePanel.SetActive(false);
+
+            }
+            else
+            {
+                activador.SetActive(false);
             }
         }
         else
