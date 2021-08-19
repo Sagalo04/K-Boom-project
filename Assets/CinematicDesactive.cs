@@ -8,19 +8,36 @@ public class CinematicDesactive : MonoBehaviour
     // Start is called before the first frame update
     public Camera CamaraFPS;
     public Camera CamaraCinematic;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    public GameObject MessagePanel;
+    public PlayableDirector director;
 
     void OnTriggerEnter(Collider d)
     {
-        if (d.gameObject.tag == "CameraCinematic")
+        if (d.CompareTag("Player"))
         {
-            CamaraFPS.enabled = true;
-            CamaraCinematic.enabled = false;
+            
         }
     }
+    void OnEnable()
+    {
+        director.stopped += OnPlayableDirectorStopped;
+    }
+
+    void OnPlayableDirectorStopped(PlayableDirector aDirector)
+    {
+        if (director == aDirector)
+        { 
+            Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
+         
+            CamaraFPS.enabled = true;
+            CamaraCinematic.enabled = false;
+         
+        }
+    }
+
+    void OnDisable()
+    {
+        director.stopped -= OnPlayableDirectorStopped;
+    }
+    
 }
