@@ -34,6 +34,7 @@ public class StartAtwood : MonoBehaviour
     private int cont = 0;
 
     private List<float> points = new List<float>();
+    private List<float> vel = new List<float>();
     private List<float> timePoints = new List<float>();
 
     public Image img;
@@ -41,19 +42,28 @@ public class StartAtwood : MonoBehaviour
     public TMP_Text textqr;
 
     private double timestart = 0;
+    private int contador = 0;
+    float initial = 0;
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Weight2.transform.localPosition.y > -32 && Weight2.transform.localPosition.y < -9)
+        if (Weight2.transform.localPosition.y >= -32 && Weight2.transform.localPosition.y < -9)
         {
 
             timePoints.Add((float)timestart);
             var timeaux = (double)Time.deltaTime;
             timestart += System.Math.Round(timeaux, 3);
             points.Add(Weight2.transform.localPosition.y);
-
+            if(contador == 0 )
+            {
+                contador++;
+                initial = Weight2.transform.localPosition.y;
+            }
+            float numeratorAux = ((float)(2 *9.8*(initial - Weight2.transform.localPosition.y)*(Weight2.GetComponent<Rigidbody>().mass- Weight.GetComponent<Rigidbody>().mass)));
+            float denominator = Weight2.GetComponent<Rigidbody>().mass + Weight.GetComponent<Rigidbody>().mass;
+            vel.Add((float)System.Math.Sqrt(numeratorAux/ denominator));
         }
         if (Weight2.transform.localPosition.y > -9) Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -159,10 +169,11 @@ public class StartAtwood : MonoBehaviour
 
     private void SendData()
     {
-        var dataY = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        var dataYx = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        var dataYv = StringSerializationAPI.Serialize(typeof(List<float>), vel);
         var dataX = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
         var Email = FirebaseAuthHandler.Email;
-        var payLoad = $"{{\"user\":\"{Email}\",\"dataY\":{dataY},\"dataX\":{dataX}}}";
+        var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
         RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
             response =>
             {

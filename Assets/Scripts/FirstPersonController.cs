@@ -54,12 +54,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Sprite Check;
 
-        public static Dictionary<string, bool> item = new Dictionary<string, bool>();
+        public static Dictionary<string, bool> item ;
 
         // Use this for initialization
         private void Start()
         {
-
+            item = new Dictionary<string, bool>();
             item.Add("Cuerda", false);
             item.Add("Polea", false);
             item.Add("Masa", false);
@@ -115,27 +115,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
-        }
 
-        public void Construct()
-        {
-            if(item["Masa"] == true && item["Polea"] == true && item["Cuerda"] == true)
-            {
-
-            }
-        }
-
-
-        private void PlayLandingSound()
-        {
-            m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
-            m_NextStep = m_StepCycle + .5f;
-        }
-
-
-        private void FixedUpdate()
-        {
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -165,14 +145,72 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.deltaTime;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
+            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.deltaTime);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
+        }
+
+        public void Construct()
+        {
+            if(item["Masa"] == true && item["Polea"] == true && item["Cuerda"] == true)
+            {
+
+            }
+        }
+
+
+        private void PlayLandingSound()
+        {
+            m_AudioSource.clip = m_LandSound;
+            m_AudioSource.Play();
+            m_NextStep = m_StepCycle + .5f;
+        }
+
+
+        private void FixedUpdate()
+        {
+            /*float speed;
+            GetInput(out speed);
+            // always move along the camera forward as it is the direction that it being aimed at
+            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
+
+            // get a normal for the surface that is being touched to move along it
+            RaycastHit hitInfo;
+            Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
+                               m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+
+            m_MoveDir.x = desiredMove.x * speed;
+            m_MoveDir.z = desiredMove.z * speed;
+
+
+            if (m_CharacterController.isGrounded)
+            {
+                m_MoveDir.y = -m_StickToGroundForce;
+
+                if (m_Jump)
+                {
+                    m_MoveDir.y = m_JumpSpeed;
+                    PlayJumpSound();
+                    m_Jump = false;
+                    m_Jumping = true;
+                }
+            }
+            else
+            {
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.deltaTime;
+            }
+            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.deltaTime);
+
+            ProgressStepCycle(speed);
+            UpdateCameraPosition(speed);
+
+            m_MouseLook.UpdateCursorLock();*/
         }
 
 
