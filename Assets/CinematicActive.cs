@@ -8,9 +8,10 @@ public class CinematicActive : MonoBehaviour
     public Camera CamaraFPS;
     public Camera CamaraCinematic;
     public GameObject Cinematica;
+    public GameObject Polea;
     public GameObject activador;
     // Start is called before the first frame update
-    void Start()
+    void Start()    
     {
         
     }
@@ -21,6 +22,7 @@ public class CinematicActive : MonoBehaviour
         if (c.gameObject.tag == "Player")
         {
             Cinematica.SetActive(true);
+            Polea.SetActive(true);
             CamaraFPS.enabled = false;
             CamaraCinematic.enabled = true;
             activador.SetActive(false);
