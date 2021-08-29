@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CinematicDesactive : MonoBehaviour
@@ -28,10 +29,12 @@ public class CinematicDesactive : MonoBehaviour
         if (director == aDirector)
         { 
             Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
-         
-            CamaraFPS.enabled = true;
-            CamaraCinematic.enabled = false;
-         
+
+            //CamaraFPS.enabled = true;
+            //CamaraCinematic.enabled = false;
+
+            SceneManager.LoadScene(2);
+
         }
     }
 

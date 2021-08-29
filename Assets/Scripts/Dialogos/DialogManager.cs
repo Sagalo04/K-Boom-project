@@ -31,6 +31,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         dialogo.SetActive(false);
+        
     }
 
     public IEnumerator Decir(Frase[] _dialogo)
