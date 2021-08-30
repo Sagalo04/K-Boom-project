@@ -45,6 +45,19 @@ public class StartAtwood : MonoBehaviour
     private int contador = 0;
     float initial = 0;
 
+    private int contmass = 0;
+
+    string dataYx;
+    string dataYv;
+    string dataX;
+    string dataYxm2;
+    string dataYvm2;
+    string dataXm2;
+    string dataYxm3;
+    string dataYvm3;
+    string dataXm3;
+    string Email;
+
     // Update is called once per frame
     void Update()
     {
@@ -65,8 +78,9 @@ public class StartAtwood : MonoBehaviour
             float denominator = Weight2.GetComponent<Rigidbody>().mass + Weight.GetComponent<Rigidbody>().mass;
             vel.Add((float)System.Math.Sqrt(numeratorAux/ denominator));
         }
-        if (Weight2.transform.localPosition.y > -9) Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+        if (Weight2.transform.localPosition.y > -9) {
+            Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -86,11 +100,20 @@ public class StartAtwood : MonoBehaviour
         }else if(HasItemTargetted() && cont == 1)
         {
             OpenMessagePanels(MessagePanel2);
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && contmass==0)
             {
                 SendData();
             }
-        }else if (HasItemTargetted() && cont == 2)
+            else if (Input.GetKeyDown(KeyCode.F) && contmass == 1)
+            {
+                SendData2();
+            }
+            else if (Input.GetKeyDown(KeyCode.F) && contmass == 2)
+            {
+                SendData3();
+            }
+        }
+        else if (HasItemTargetted() && cont == 2)
         {
             OpenMessagePanels(MessagePanel3);
             if (Input.GetKeyDown(KeyCode.F))
@@ -169,18 +192,90 @@ public class StartAtwood : MonoBehaviour
 
     private void SendData()
     {
-        var dataYx = StringSerializationAPI.Serialize(typeof(List<float>), points);
-        var dataYv = StringSerializationAPI.Serialize(typeof(List<float>), vel);
-        var dataX = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
+        dataYx = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        dataYv = StringSerializationAPI.Serialize(typeof(List<float>), vel);
+        dataX = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
+        /*var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
+        RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
+            response =>
+            {
+                string S = response.Text;
+                Debug.Log(S);
+            }).Catch(Debug.Log);*/
+        contmass++;
+        contador = 0;
+        cont = 0;
+
+        points.Clear();
+        vel.Clear();
+        timePoints.Clear();
+
+        timestart = 0;
+
+        Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
+        Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
+        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Weight.GetComponent<Rigidbody>().mass = 1.6f;
+        CloseMessagePanel();
+    }
+
+    private void SendData2()
+    {
+        dataYxm2 = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        dataYvm2 = StringSerializationAPI.Serialize(typeof(List<float>), vel);
+        dataXm2 = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
+       /* var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
+        RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
+            response =>
+            {
+                string S = response.Text;
+                Debug.Log(S);
+            }).Catch(Debug.Log);*/
+        contmass++;
+        contador = 0;
+        cont = 0;
+
+        points.Clear();
+        vel.Clear();
+        timePoints.Clear();
+
+        timestart = 0;
+
+        Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
+        Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
+        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Weight.GetComponent<Rigidbody>().mass = 2.4f;
+        CloseMessagePanel();
+    }
+
+    private void SendData3()
+    {
+        dataYxm3 = StringSerializationAPI.Serialize(typeof(List<float>), points);
+        dataYvm3 = StringSerializationAPI.Serialize(typeof(List<float>), vel);
+        dataXm3 = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
         var Email = FirebaseAuthHandler.Email;
-        var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
+        var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX},\"dataYxm2\":{dataYxm2},\"dataYvm2\":{dataYvm2},\"dataXm2\":{dataXm2},\"dataYxm3\":{dataYxm3},\"dataYvm3\":{dataYvm3},\"dataXm3\":{dataXm3}}}";
         RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
             response =>
             {
                 string S = response.Text;
                 Debug.Log(S);
             }).Catch(Debug.Log);
-        cont++;
+        contmass++;
+        cont ++;
+
+        points.Clear();
+        vel.Clear();
+        timePoints.Clear();
+
+        timestart = 0;
+
+        Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
+        Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
+        Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         CloseMessagePanel();
     }
 
