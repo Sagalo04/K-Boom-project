@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LvlMng : MonoBehaviour
 {
+    public string lvl;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class LvlMng : MonoBehaviour
 
     public void CargarNivel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(lvl);
     }
     public void CerrarJuego()
     {

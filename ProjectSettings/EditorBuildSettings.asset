@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Login.unity
     guid: cc23be780d7f42c44be81fcf21c331fd
   - enabled: 1
-    path: Assets/Scenes/Mision Uno.unity
+    path: Assets/Scenes/Mision1.unity
     guid: aad95589b0b296c4a90505a69c9a848c
   - enabled: 1
-    path: Assets/Scenes/Mision1.unity
+    path: Assets/Scenes/Mision2.unity
     guid: c06ffea03182f374bad8b8bb4373fd9f
   - enabled: 1
     path: Assets/Scenes/MenuPrincipal.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 92947d7babcf2e040ae85ef8c01f59d8
+  - enabled: 1
+    path: Assets/Scenes/Advertencia.unity
+    guid: 3f058e8bd3871734f9c5128cfe99645b
   m_configObjects: {}
