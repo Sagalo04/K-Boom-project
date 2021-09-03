@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196c639b39ead8d49b7bcb62e08f7691, type: 3}
   m_Name: ConfigDialo
   m_EditorClassIdentifier: 
-  tiempoLetra: 0.1
+  tiempoLetra: 0.05
   tecladoSkip: 101
