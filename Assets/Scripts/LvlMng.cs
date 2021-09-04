@@ -7,8 +7,10 @@ public class LvlMng : MonoBehaviour
 {
     public string lvl;
     // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
+
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
@@ -26,4 +28,6 @@ public class LvlMng : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }

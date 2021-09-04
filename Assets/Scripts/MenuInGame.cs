@@ -6,8 +6,25 @@ using UnityEngine;
 public class MenuInGame : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
+    public OptManager panelOpciones;
+    //public GameObject fpsObj;
+    //public FirstPerson2 fpsScript;
+
+
+    public void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    void Start()
+    {
+
+        panelOpciones = GameObject.FindGameObjectWithTag("opciones").GetComponent<OptManager>();
+        
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -17,6 +34,7 @@ public class MenuInGame : MonoBehaviour
             if(GameIsPaused)
             {
                 Resume();
+
             }
             else
             {
@@ -27,13 +45,23 @@ public class MenuInGame : MonoBehaviour
 
     public void Resume()
     {
+        //fpsObj = GameObject.Find("FPSController");
+        //fpsScript = fpsObj.GetComponent<FirstPerson2>();
+        //fpsScript.enabled = true;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
+        panelOpciones.pantallaOpciones.SetActive(false);
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
-    void Pause()
+    public void Pause()
     {
+       // fpsObj = GameObject.Find("FPSController");
+       // fpsScript = fpsObj.GetComponent<FirstPerson2>();
+        //Disable FPS script
+       // fpsScript.enabled = false;
+        //Unlock Mouse and make it visible
+       // Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
@@ -44,4 +72,12 @@ public class MenuInGame : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void MostrarOpciones()
+    {
+        Cursor.visible = true;
+        panelOpciones.pantallaOpciones.SetActive(true);
+        
+    }
+    
 }
