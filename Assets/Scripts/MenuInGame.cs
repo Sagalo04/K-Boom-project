@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class MenuInGame : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public OptManager panelOpciones;
-    //public GameObject fpsObj;
-    //public FirstPerson2 fpsScript;
+    public GameObject fpsObj;
+    public FirstPersonController fpsScript;
 
 
     public void Awake()
@@ -45,9 +46,9 @@ public class MenuInGame : MonoBehaviour
 
     public void Resume()
     {
-        //fpsObj = GameObject.Find("FPSController");
-        //fpsScript = fpsObj.GetComponent<FirstPerson2>();
-        //fpsScript.enabled = true;
+        fpsObj = GameObject.Find("FPSController");
+        fpsScript = fpsObj.GetComponent<FirstPersonController>();
+        fpsScript.enabled = true;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         panelOpciones.pantallaOpciones.SetActive(false);
@@ -56,12 +57,12 @@ public class MenuInGame : MonoBehaviour
     }
     public void Pause()
     {
-       // fpsObj = GameObject.Find("FPSController");
-       // fpsScript = fpsObj.GetComponent<FirstPerson2>();
+        fpsObj = GameObject.Find("FPSController");
+        fpsScript = fpsObj.GetComponent<FirstPersonController>();
         //Disable FPS script
-       // fpsScript.enabled = false;
+        fpsScript.enabled = false;
         //Unlock Mouse and make it visible
-       // Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
