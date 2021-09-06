@@ -59,9 +59,7 @@ public class MenuInGame : MonoBehaviour
     {
         fpsObj = GameObject.Find("FPSController");
         fpsScript = fpsObj.GetComponent<FirstPersonController>();
-        //Disable FPS script
         fpsScript.enabled = false;
-        //Unlock Mouse and make it visible
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenuUI.SetActive(true);

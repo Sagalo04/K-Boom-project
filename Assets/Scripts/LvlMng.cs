@@ -9,7 +9,6 @@ public class LvlMng : MonoBehaviour
     // Start is called before the first frame update
     public void Awake()
     {
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
