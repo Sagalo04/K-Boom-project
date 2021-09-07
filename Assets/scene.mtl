@@ -1,0 +1,9 @@
+# Exported from 3D Builder
+
+newmtl blinn1SG
+Kd 1.000000 1.000000 1.000000
+map_Kd blinn1SG_baseColor.png
+
+newmtl blinn1SG
+Kd 1.000000 1.000000 1.000000
+map_Kd blinn1SG_baseColor.png

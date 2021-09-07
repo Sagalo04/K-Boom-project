@@ -23,6 +23,12 @@ public class StartAtwood : MonoBehaviour
 
     public GameObject MessagePanel3;
 
+    public GameObject Masa1;
+
+    public GameObject Masa2;
+
+    public GameObject Masa3;
+
     public GameObject QR;
 
     public GameObject Weight, Weight2;
@@ -61,7 +67,6 @@ public class StartAtwood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Weight2.transform.localPosition.y >= -32 && Weight2.transform.localPosition.y < -9)
         {
 
@@ -212,11 +217,15 @@ public class StartAtwood : MonoBehaviour
 
         timestart = 0;
 
+        Masa1.SetActive(false);
+        Masa2.SetActive(true);
+
+
         Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
         Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
         Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        Weight.GetComponent<Rigidbody>().mass = 1.6f;
+        Weight.GetComponent<Rigidbody>().mass = 3f;
         CloseMessagePanel();
     }
 
@@ -242,11 +251,14 @@ public class StartAtwood : MonoBehaviour
 
         timestart = 0;
 
+        Masa2.SetActive(false);
+        Masa3.SetActive(true);
+
         Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
         Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
         Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        Weight.GetComponent<Rigidbody>().mass = 2.4f;
+        Weight.GetComponent<Rigidbody>().mass = 3.1f;
         CloseMessagePanel();
     }
 
