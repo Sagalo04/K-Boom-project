@@ -297,6 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 7465540605484451024}
   panelOpciones: {fileID: 0}
+  fpsObj: {fileID: 0}
+  fpsScript: {fileID: 0}
 --- !u!1 &7465540604182940762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1534,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7465540605581802235}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1463.9204, y: 1003, z: 347.20227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
