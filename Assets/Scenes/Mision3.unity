@@ -3841,6 +3841,21 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 196731061001765883, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -190
+      objectReference: {fileID: 0}
+    - target: {fileID: 196731061067494888, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -190
+      objectReference: {fileID: 0}
+    - target: {fileID: 196731061334612534, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
+      propertyPath: m_text
+      value: Hallar Fneta de la masa 1
+      objectReference: {fileID: 0}
     - target: {fileID: 196731061334612534, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -3854,17 +3869,22 @@ PrefabInstance:
     - target: {fileID: 196731061334612534, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 196731061334612534, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 196731061334612534, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 19
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 196731061782224834, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
+      propertyPath: m_text
+      value: Hallar Fneta de la masa 2
       objectReference: {fileID: 0}
     - target: {fileID: 196731061782224834, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
@@ -3879,17 +3899,22 @@ PrefabInstance:
     - target: {fileID: 196731061782224834, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 196731061782224834, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 196731061782224834, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 18
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 196731061845576620, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -190
       objectReference: {fileID: 0}
     - target: {fileID: 196731062018719291, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
@@ -3913,6 +3938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196731062398451699, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
+      propertyPath: m_text
+      value: Hallar Fneta de la masa 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 196731062398451699, guid: 58fe5528ce7230d43a2c79dc198c332e,
+        type: 3}
       propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
@@ -3924,17 +3954,17 @@ PrefabInstance:
     - target: {fileID: 196731062398451699, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 196731062398451699, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 196731062398451699, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 18
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 196731062444121390, guid: 58fe5528ce7230d43a2c79dc198c332e,
         type: 3}

@@ -64,6 +64,13 @@ public class StartAtwood : MonoBehaviour
     string dataXm3;
     string Email;
 
+    public Image Mission1_1;
+    public Image Mission1_2;
+    public Image Mission1_3;
+
+    public Sprite Check;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -108,14 +115,17 @@ public class StartAtwood : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && contmass==0)
             {
                 SendData();
+                ProgressBar.current = ProgressBar.current + 34;
             }
             else if (Input.GetKeyDown(KeyCode.F) && contmass == 1)
             {
                 SendData2();
+                ProgressBar.current = ProgressBar.current + 34;
             }
             else if (Input.GetKeyDown(KeyCode.F) && contmass == 2)
             {
                 SendData3();
+                ProgressBar.current = ProgressBar.current + 34;
             }
         }
         else if (HasItemTargetted() && cont == 2)
@@ -227,6 +237,8 @@ public class StartAtwood : MonoBehaviour
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().mass = 3f;
         CloseMessagePanel();
+
+        Mission1_1.sprite = Check;
     }
 
     private void SendData2()
@@ -260,6 +272,8 @@ public class StartAtwood : MonoBehaviour
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().mass = 3.1f;
         CloseMessagePanel();
+
+        Mission1_2.sprite = Check;
     }
 
     private void SendData3()
@@ -289,6 +303,7 @@ public class StartAtwood : MonoBehaviour
         Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         CloseMessagePanel();
+        Mission1_3.sprite = Check;
     }
 
     private void ShowQR()
