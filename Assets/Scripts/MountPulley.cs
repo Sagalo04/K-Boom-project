@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class MountPulley : MonoBehaviour
@@ -18,8 +20,19 @@ public class MountPulley : MonoBehaviour
 
     private Item itemBeingPickUp;
 
+    public TMP_Text text;
+
+    public Image Mission4;
+    public Sprite Normal;
+    public Sprite Check;
+
     void Update()
     {
+        if ((FirstPersonController.item["Masa"] == true && FirstPersonController.item["Polea"] == true && FirstPersonController.item["Cuerda"] == true))
+        { 
+            text.color = Color.black;
+            Mission4.sprite = Normal;
+        }
         SelectItemPickedFromRay();
         if (HasItemTargetted() && (FirstPersonController.item["Masa"] == true && FirstPersonController.item["Polea"] == true && FirstPersonController.item["Cuerda"] == true))
         {
@@ -27,6 +40,8 @@ public class MountPulley : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                ProgressBar.current = ProgressBar.current + 25;
+                Mission4.sprite = Check;
                 activador.SetActive(true);
                 FirstPersonController.item["Masa"] = false;
                 FirstPersonController.item["Polea"] = false;

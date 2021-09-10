@@ -16,6 +16,8 @@ public class StartAtwood : MonoBehaviour
 #pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
 
     public LayerMask layerMask;
+    public LayerMask layerMask2;
+
 
     public GameObject MessagePanel;
 
@@ -34,6 +36,7 @@ public class StartAtwood : MonoBehaviour
     public GameObject Weight, Weight2;
 
     private Item itemBeingPickUp;
+    private Item MassBeingPickUp;
 
     private FirstPersonController firstPersonController;
 
@@ -52,6 +55,7 @@ public class StartAtwood : MonoBehaviour
     float initial = 0;
 
     private int contmass = 0;
+    private int masspick = 0;
 
     string dataYx;
     string dataYv;
@@ -101,18 +105,28 @@ public class StartAtwood : MonoBehaviour
         }
 
         SelectItemPickedFromRay();
-        if (HasItemTargetted() && cont == 0)
+        SelectMassFromRay();
+        if (HasMassTargetted() && contmass==100)
         {
             OpenMessagePanels(MessagePanel);
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                MoveMassToInventory();
+            }
+        }
+        if (HasItemTargetted() && cont == 0 && contmass < 100)
+        {
+            OpenMessagePanels(MessagePanel);
+
+            if (Input.GetKeyDown(KeyCode.F) && contmass<100)
+            {
                 StartMedition();
             }
-        }else if(HasItemTargetted() && cont == 1)
+        }else if(HasItemTargetted() && cont == 1 && Weight2.GetComponent<Rigidbody>().constraints == RigidbodyConstraints.FreezeAll)
         {
             OpenMessagePanels(MessagePanel2);
-            if (Input.GetKeyDown(KeyCode.F) && contmass==0)
+            if (Input.GetKeyDown(KeyCode.F) && contmass==0 )
             {
                 SendData();
                 ProgressBar.current = ProgressBar.current + 34;
@@ -146,6 +160,11 @@ public class StartAtwood : MonoBehaviour
     private bool HasItemTargetted()
     {
         return itemBeingPickUp != null;
+    }
+
+    private bool HasMassTargetted()
+    {
+        return MassBeingPickUp != null;
     }
 
     public void OpenMessagePanels(GameObject MessagePanel)
@@ -183,12 +202,36 @@ public class StartAtwood : MonoBehaviour
                 itemBeingPickUp = hitItem;
 
                 Debug.Log(itemBeingPickUp.name);
-
             }
         }
         else
         {
             itemBeingPickUp = null;
+        }
+    }
+
+    private void SelectMassFromRay()
+    {
+        Ray ray = camera.ViewportPointToRay(Vector3.one / 2f);
+        Debug.DrawRay(ray.origin, ray.direction * 2f, Color.red);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo, 3f, layerMask2))
+        {
+            var hitItem = hitInfo.collider.GetComponent<Item>();
+
+            if (hitItem == null)
+            {
+                itemBeingPickUp = null;
+            }
+            else if (hitItem != null && hitItem != MassBeingPickUp)
+            {
+                MassBeingPickUp = hitItem;
+                Debug.Log(MassBeingPickUp.name);
+            }
+        }
+        else
+        {
+            MassBeingPickUp = null;
         }
 
     }
@@ -198,7 +241,6 @@ public class StartAtwood : MonoBehaviour
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
         Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
 
         cont++;
         itemBeingPickUp = null;
@@ -217,7 +259,7 @@ public class StartAtwood : MonoBehaviour
                 string S = response.Text;
                 Debug.Log(S);
             }).Catch(Debug.Log);*/
-        contmass++;
+        contmass=100;
         contador = 0;
         cont = 0;
 
@@ -226,10 +268,6 @@ public class StartAtwood : MonoBehaviour
         timePoints.Clear();
 
         timestart = 0;
-
-        Masa1.SetActive(false);
-        Masa2.SetActive(true);
-
 
         Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
         Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
@@ -253,7 +291,7 @@ public class StartAtwood : MonoBehaviour
                 string S = response.Text;
                 Debug.Log(S);
             }).Catch(Debug.Log);*/
-        contmass++;
+        contmass=100;
         contador = 0;
         cont = 0;
 
@@ -262,9 +300,6 @@ public class StartAtwood : MonoBehaviour
         timePoints.Clear();
 
         timestart = 0;
-
-        Masa2.SetActive(false);
-        Masa3.SetActive(true);
 
         Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
         Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
@@ -289,7 +324,7 @@ public class StartAtwood : MonoBehaviour
                 string S = response.Text;
                 Debug.Log(S);
             }).Catch(Debug.Log);
-        contmass++;
+        contmass=3;
         cont ++;
 
         points.Clear();
@@ -303,6 +338,7 @@ public class StartAtwood : MonoBehaviour
         Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Weight.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         CloseMessagePanel();
+
         Mission1_3.sprite = Check;
     }
 
@@ -341,6 +377,28 @@ public class StartAtwood : MonoBehaviour
         encoded.Apply();
         return encoded;
     }
+
+    private void MoveMassToInventory()
+    {
+        if (MassBeingPickUp.name == "Masa2")
+        {
+            contmass=1;
+            Masa1.SetActive(false);
+            Masa2.SetActive(true);
+            Masa3.SetActive(false);
+        }
+        if (MassBeingPickUp.name == "Masa3")
+        {
+            contmass = 2;
+            Masa1.SetActive(false);
+            Masa2.SetActive(false);
+            Masa3.SetActive(true);
+        }
+        Destroy(MassBeingPickUp.gameObject);
+        MassBeingPickUp = null;
+
+    }
+
 
 
 }
