@@ -8,6 +8,7 @@ TagManager:
   - Cinematica
   - CameraCinematic
   - opciones
+  - Bomba
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Item
   - Switch
   - Mount
-  - 
-  - 
-  - 
+  - Masa1
+  - Masa2
+  - Masa3
   - 
   - 
   - 
