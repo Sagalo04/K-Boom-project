@@ -89,7 +89,7 @@ public class PresstoPickUp : MonoBehaviour
         Destroy(itemBeingPickUp.gameObject);
         FirstPersonController.item[itemBeingPickUp.name] = true;
         itemBeingPickUp = null;
-        ProgressBar.current = ProgressBar.current + 34;
+        ProgressBar.current = ProgressBar.current + 25;
     }
 
 
