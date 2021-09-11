@@ -8,6 +8,8 @@ public class CalculoFuerza : MonoBehaviour
     public TMP_InputField inputmass1;
     public TMP_InputField inputmass2;
     public TMP_InputField inputmass3;
+    public GameObject ResultadoIncorrecto;
+    public GameObject ResultadoCorrecto;
 
 
     // Start is called before the first frame update
@@ -36,12 +38,17 @@ public class CalculoFuerza : MonoBehaviour
         Debug.Log(A1);
         Debug.Log(A2);
         Debug.Log(A3);
-
+        
         if (A1 && A2 && A3) {
+
+            ResultadoIncorrecto.SetActive(false);
+            ResultadoCorrecto.SetActive(true);
             Debug.Log("CORRECTO");
         }
         else
         {
+            ResultadoIncorrecto.SetActive(true);
+            ResultadoCorrecto.SetActive(false);
             Debug.Log("INCORRECTO");
         }
     }
