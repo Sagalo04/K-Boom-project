@@ -74,6 +74,9 @@ public class StartAtwood : MonoBehaviour
 
     public Sprite Check;
 
+    public GameObject fpsObj;
+    public FirstPersonController fpsScript;
+
 
     // Update is called once per frame
     void Update()
@@ -98,10 +101,9 @@ public class StartAtwood : MonoBehaviour
             Weight2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             CloseQR();
-            Time.timeScale = 1;
         }
 
         SelectItemPickedFromRay();
@@ -148,6 +150,7 @@ public class StartAtwood : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 ShowQR();
+                CloseMessagePanel();
                 Time.timeScale = 0;
             }
         }
@@ -181,7 +184,11 @@ public class StartAtwood : MonoBehaviour
     public void CloseQR()
     {
         QR.SetActive(false);
-        Time.timeScale = 1;
+        fpsObj = GameObject.Find("FPSController");
+        fpsScript = fpsObj.GetComponent<FirstPersonController>();
+        fpsScript.enabled = true;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
     }
 
     private void SelectItemPickedFromRay()
@@ -351,8 +358,19 @@ public class StartAtwood : MonoBehaviour
         var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
         Time.timeScale = 0;
         img.sprite = mySprite;
+        fpsObj = GameObject.Find("FPSController");
+        fpsScript = fpsObj.GetComponent<FirstPersonController>();
+        fpsScript.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f;
         Debug.Log(timePoints.Count);
         Debug.Log(points.Count);
+    }
+
+    public void OpenUrl()
+    {
+        Application.OpenURL(textqr.text);
     }
 
     private static Color32[] Encode(string textForEncoding, int width, int height)
