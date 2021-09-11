@@ -32,6 +32,9 @@ public class StartAtwood : MonoBehaviour
     public GameObject Masa3;
 
     public GameObject QR;
+    public GameObject DialogoActivador;
+    public GameObject PuertaOutline;
+    public GameObject PuertaNormal;
 
     public GameObject Weight, Weight2;
 
@@ -104,6 +107,9 @@ public class StartAtwood : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             CloseQR();
+            DialogoActivador.SetActive(true);
+            PuertaOutline.SetActive(true);
+            PuertaNormal.SetActive(false);
         }
 
         SelectItemPickedFromRay();

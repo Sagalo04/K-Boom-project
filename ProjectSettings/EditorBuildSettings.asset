@@ -27,9 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 92947d7babcf2e040ae85ef8c01f59d8
   - enabled: 1
-    path: Assets/Scenes/Advertencia.unity
-    guid: 3f058e8bd3871734f9c5128cfe99645b
-  - enabled: 1
     path: Assets/Scenes/Mision5.unity
     guid: 03f1931f4ad5a3c4789280acf972813f
   - enabled: 1
