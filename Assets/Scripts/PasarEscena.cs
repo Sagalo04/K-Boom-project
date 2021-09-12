@@ -8,7 +8,7 @@ public class PasarEscena : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene(1);
+        LevelLoader.LoadLevel("Mision1");
     }
 
     // Update is called once per frame
