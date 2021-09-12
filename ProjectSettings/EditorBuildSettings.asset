@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalIncorrecto1.unity
     guid: 90ad4c6b228bd0746b1aa60448595de7
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: c35fab86a786bf04e96b0f0deffb445e
   m_configObjects: {}

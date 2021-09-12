@@ -39,16 +39,16 @@ public class FinalDecision : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && m1 == true)
             {
-                SceneManager.LoadScene(lvlMasa1);
+                LevelLoader.LoadLevel(lvlMasa1);
 
             }
             else if (Input.GetKeyDown(KeyCode.F) && m2 == true)
             {
-                SceneManager.LoadScene(lvlMasa2);
+                LevelLoader.LoadLevel(lvlMasa2);
             }
             else if (Input.GetKeyDown(KeyCode.F) && m3 == true)
             {
-                SceneManager.LoadScene(lvlMasa3);
+                LevelLoader.LoadLevel(lvlMasa3);
             }
         }
         

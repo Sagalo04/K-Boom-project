@@ -14,7 +14,7 @@ public class Laboratory : MonoBehaviour
             msgAbrir.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
-                SceneManager.LoadScene("Mision3");
+                LevelLoader.LoadLevel("Mision3");
             }
         }
         else

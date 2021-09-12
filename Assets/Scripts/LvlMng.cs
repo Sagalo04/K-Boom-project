@@ -21,7 +21,7 @@ public class LvlMng : MonoBehaviour
 
     public void CargarNivel()
     {
-        SceneManager.LoadScene(lvl);
+        LevelLoader.LoadLevel(lvl);
     }
     public void CerrarJuego()
     {

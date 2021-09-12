@@ -33,7 +33,7 @@ public class CinematicDesactive : MonoBehaviour
             //CamaraFPS.enabled = true;
             //CamaraCinematic.enabled = false;
 
-            SceneManager.LoadScene(2);
+            LevelLoader.LoadLevel("Mision2");
 
         }
     }
