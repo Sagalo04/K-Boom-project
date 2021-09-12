@@ -359,8 +359,8 @@ public class StartAtwood : MonoBehaviour
     {
         QR.SetActive(true);
         var Email = FirebaseAuthHandler.Email;
-        Texture2D myQR = generateQR($"https://kboomfront.vercel.app/{Email}");
-        textqr.text = $"https://kboomfront.vercel.app/{Email}";
+        Texture2D myQR = generateQR($"https://kboomfront-2p9yedzrc-laura-valgarces-uaoeduco.vercel.app/{Email}");
+        textqr.text = $"https://kboomfront-2p9yedzrc-laura-valgarces-uaoeduco.vercel.app/{Email}";
         var mySprite = Sprite.Create(myQR, new Rect(0, 0, myQR.width, myQR.height), new Vector2(0.5f, 0.5f), 100.0f);
         Time.timeScale = 0;
         img.sprite = mySprite;
