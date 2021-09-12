@@ -34,6 +34,10 @@ public class StartAtwood : MonoBehaviour
 
     public GameObject Masa3;
 
+    public GameObject Mass2;
+    public GameObject Mass3;
+
+
     public GameObject QR;
     public GameObject DialogoActivador;
     public GameObject PuertaOutline;
@@ -302,6 +306,8 @@ public class StartAtwood : MonoBehaviour
         Weight.GetComponent<Rigidbody>().mass = 3f;
         CloseMessagePanel();
 
+        Mass2.GetComponent<Outline>().enabled = true;
+
         Mission1_1.sprite = Check;
     }
 
@@ -320,6 +326,9 @@ public class StartAtwood : MonoBehaviour
         timePoints.Clear();
 
         timestart = 0;
+
+        Mass3.GetComponent<Outline>().enabled = true;
+
 
         Weight.GetComponent<Transform>().localPosition = new Vector3(Weight.transform.localPosition.x, -32.8f, Weight.transform.localPosition.z);
         Weight2.GetComponent<Transform>().localPosition = new Vector3(Weight2.transform.localPosition.x, -32.8f, Weight2.transform.localPosition.z);
