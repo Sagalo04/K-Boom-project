@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CalculoFuerza : MonoBehaviour
+public class CalculoFuerzaTrabajo : MonoBehaviour
 {
     public TMP_InputField inputmass1;
     public TMP_InputField inputmass2;
@@ -14,6 +14,8 @@ public class CalculoFuerza : MonoBehaviour
     public static float MasaRoja;
     public static float MasaAmarilla;
     public static float MasaAzul;
+
+    
 
     public void OnclickedForce()
     {
@@ -29,8 +31,9 @@ public class CalculoFuerza : MonoBehaviour
         Debug.Log(A1);
         Debug.Log(A2);
         Debug.Log(A3);
-        
-        if (A1 && A2 && A3) {
+
+        if (A1 && A2 && A3)
+        {
 
             ResultadoIncorrecto.SetActive(false);
             ResultadoCorrecto.SetActive(true);

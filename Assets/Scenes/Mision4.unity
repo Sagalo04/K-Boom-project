@@ -2200,7 +2200,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1697477480}
+      - m_Target: {fileID: 0}
         m_MethodName: OnclickedForce
         m_Mode: 1
         m_Arguments:
@@ -5649,8 +5649,8 @@ GameObject:
   - component: {fileID: 1697477475}
   - component: {fileID: 1697477474}
   - component: {fileID: 1697477473}
-  - component: {fileID: 1697477480}
   - component: {fileID: 1697477479}
+  - component: {fileID: 1697477480}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Player
@@ -5807,7 +5807,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1697477472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc991006b97566429142d63ee2aa83e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d370cf70d3b0fc4f8b7cf546ffed012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputmass1: {fileID: 852491997}

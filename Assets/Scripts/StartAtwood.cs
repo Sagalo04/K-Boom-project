@@ -25,6 +25,9 @@ public class StartAtwood : MonoBehaviour
 
     public GameObject MessagePanel3;
 
+    public GameObject MessagePanelMass;
+    public GameObject MessagePanelMass2;
+
     public GameObject Masa1;
 
     public GameObject Masa2;
@@ -116,12 +119,17 @@ public class StartAtwood : MonoBehaviour
         SelectMassFromRay();
         if (HasMassTargetted() && contmass==100)
         {
-            OpenMessagePanels(MessagePanel);
+            if(MassBeingPickUp.name == "Masa2" && masspick==0) { OpenMessageMassPanels(MessagePanelMass); }
+            else if (MassBeingPickUp.name == "Masa3" && masspick == 1) { OpenMessageMassPanels(MessagePanelMass2); }
 
             if (Input.GetKeyDown(KeyCode.F))
             {
                 MoveMassToInventory();
             }
+        }
+        else
+        {
+            CloseMessageMassPanel();
         }
         if (HasItemTargetted() && cont == 0 && contmass < 100)
         {
@@ -180,6 +188,17 @@ public class StartAtwood : MonoBehaviour
     {
         MessagePanel.SetActive(true);
     }
+
+    public void OpenMessageMassPanels(GameObject MessagePanel)
+    {
+        MessagePanel.SetActive(true);
+    }
+    public void CloseMessageMassPanel()
+    {
+        MessagePanelMass.SetActive(false);
+        MessagePanelMass2.SetActive(false);
+    }
+
     public void CloseMessagePanel()
     {
         MessagePanel.SetActive(false);
@@ -234,7 +253,7 @@ public class StartAtwood : MonoBehaviour
 
             if (hitItem == null)
             {
-                itemBeingPickUp = null;
+                MassBeingPickUp = null;
             }
             else if (hitItem != null && hitItem != MassBeingPickUp)
             {
@@ -265,13 +284,7 @@ public class StartAtwood : MonoBehaviour
         dataYx = StringSerializationAPI.Serialize(typeof(List<float>), points);
         dataYv = StringSerializationAPI.Serialize(typeof(List<float>), vel);
         dataX = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
-        /*var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
-        RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
-            response =>
-            {
-                string S = response.Text;
-                Debug.Log(S);
-            }).Catch(Debug.Log);*/
+
         contmass=100;
         contador = 0;
         cont = 0;
@@ -297,13 +310,7 @@ public class StartAtwood : MonoBehaviour
         dataYxm2 = StringSerializationAPI.Serialize(typeof(List<float>), points);
         dataYvm2 = StringSerializationAPI.Serialize(typeof(List<float>), vel);
         dataXm2 = StringSerializationAPI.Serialize(typeof(List<float>), timePoints);
-       /* var payLoad = $"{{\"user\":\"{Email}\",\"dataYx\":{dataYx},\"dataYv\":{dataYv},\"dataX\":{dataX}}}";
-        RestClient.Post("https://kboombackend.herokuapp.com/points", payLoad).Then(
-            response =>
-            {
-                string S = response.Text;
-                Debug.Log(S);
-            }).Catch(Debug.Log);*/
+
         contmass=100;
         contador = 0;
         cont = 0;
@@ -404,22 +411,25 @@ public class StartAtwood : MonoBehaviour
 
     private void MoveMassToInventory()
     {
-        if (MassBeingPickUp.name == "Masa2")
+        if (MassBeingPickUp.name == "Masa2" && masspick == 0)
         {
             contmass=1;
             Masa1.SetActive(false);
             Masa2.SetActive(true);
             Masa3.SetActive(false);
+            Destroy(MassBeingPickUp.gameObject);
+            MassBeingPickUp = null;
+            masspick++;
         }
-        if (MassBeingPickUp.name == "Masa3")
+        if (MassBeingPickUp.name == "Masa3" && masspick == 1)
         {
             contmass = 2;
             Masa1.SetActive(false);
             Masa2.SetActive(false);
             Masa3.SetActive(true);
+            Destroy(MassBeingPickUp.gameObject);
+            MassBeingPickUp = null;
         }
-        Destroy(MassBeingPickUp.gameObject);
-        MassBeingPickUp = null;
 
     }
 
