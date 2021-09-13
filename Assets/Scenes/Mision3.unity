@@ -2138,10 +2138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2914,7 +2914,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 231, y: -124.23}
-  m_SizeDelta: {x: 150, y: 79.474106}
+  m_SizeDelta: {x: 220, y: 79.474106}
   m_Pivot: {x: 0.5, y: 0.3561355}
 --- !u!114 &868337296
 MonoBehaviour:
@@ -4377,6 +4377,11 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7470144801996254605, guid: bd0ae0548bb4f5a4297d66a9cd30ce21,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7470144801996254607, guid: bd0ae0548bb4f5a4297d66a9cd30ce21,
         type: 3}
       propertyPath: m_Name
@@ -5076,9 +5081,9 @@ RectTransform:
   m_Father: {fileID: 1020575818}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.803, y: -386.7}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 42.88, y: -336.7}
   m_SizeDelta: {x: 307.1493, y: 72.31616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1255215618
@@ -5127,6 +5132,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1193471270}
         m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1062790706}
+        m_MethodName: OnConfirmForce
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5793,10 +5809,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6903,7 +6919,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 231, y: -4.3}
-  m_SizeDelta: {x: 150, y: 79.474106}
+  m_SizeDelta: {x: 220, y: 79.474106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043409477
 MonoBehaviour:
@@ -7247,7 +7263,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 231, y: -219.79997}
-  m_SizeDelta: {x: 150, y: 79.474106}
+  m_SizeDelta: {x: 220, y: 79.474106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072546252
 MonoBehaviour:

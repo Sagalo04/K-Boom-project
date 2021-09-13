@@ -50,4 +50,13 @@ public class CalculoFuerza : MonoBehaviour
             ProgressBar.current = ProgressBar.current + 100;
         }
     }
+
+    public void OnConfirmForce()
+    {
+        MasaRoja = float.Parse(inputmass1.text);
+
+        MasaAmarilla = float.Parse(inputmass2.text);
+
+        MasaAzul = float.Parse(inputmass3.text);
+    }
 }
