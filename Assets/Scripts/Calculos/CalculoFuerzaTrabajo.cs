@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CalculoFuerzaTrabajo : MonoBehaviour
 {
@@ -15,8 +16,9 @@ public class CalculoFuerzaTrabajo : MonoBehaviour
     public static float MasaAmarilla;
     public static float MasaAzul;
 
-    
 
+    public Image Mission4;
+    public Sprite Check;
     public void OnclickedForce()
     {
         MasaRoja = float.Parse(inputmass1.text);
@@ -38,6 +40,9 @@ public class CalculoFuerzaTrabajo : MonoBehaviour
             ResultadoIncorrecto.SetActive(false);
             ResultadoCorrecto.SetActive(true);
             Debug.Log("CORRECTO");
+
+            Mission4.sprite = Check;
+            ProgressBar.current = ProgressBar.current + 100;
         }
         else
         {
