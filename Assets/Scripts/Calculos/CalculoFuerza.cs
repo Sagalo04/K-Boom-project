@@ -46,6 +46,8 @@ public class CalculoFuerza : MonoBehaviour
             ResultadoIncorrecto.SetActive(true);
             ResultadoCorrecto.SetActive(false);
             Debug.Log("INCORRECTO");
+            Mission4.sprite = Check;
+            ProgressBar.current = ProgressBar.current + 100;
         }
     }
 }
