@@ -430,7 +430,7 @@ public class StartAtwood : MonoBehaviour
             MassBeingPickUp = null;
             masspick++;
         }
-        if (MassBeingPickUp.name == "Masa3" && masspick == 1)
+        else if (MassBeingPickUp.name == "Masa3" && masspick == 1)
         {
             contmass = 2;
             Masa1.SetActive(false);
