@@ -3946,8 +3946,8 @@ MonoBehaviour:
   estadoActual: 0
   estados:
   - frases:
-    - texto: "Ahora va a realizar los calculos con el Teorema trabajo-energ\xEDa,
-        la formula se encuentra en el tablero."
+    - texto: "Ahora va a realizar los c\xE1lculos con el Teorema trabajo-energ\xEDa,
+        la f\xF3rmula se encuentra en el tablero."
     - texto: Vamos, no hay tiempo que perder.
 --- !u!65 &1232469372
 BoxCollider:

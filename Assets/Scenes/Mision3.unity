@@ -6418,13 +6418,13 @@ MonoBehaviour:
   estadoActual: 0
   estados:
   - frases:
-    - texto: Hola ingenier@, en este momento nos encontramos en el laboratorio de
-        analisis
-    - texto: "Aqu\xED es donde vas realizar los diferentes calculos para saber cual
-        es la masa m\xE1s optima para el descenso de la bomba"
-    - texto: "En el tablero se encuentra la formula que podr\xE1s utilizar en este
-        caso, primero vamos a calcular la fuerza con la segunda ley de Newton"
-    - texto: Vamos, el tiempo no espera
+    - texto: "Ingenier@, en este momento nos encontramos en el laboratorio de an\xE1lisis. "
+    - texto: "Aqu\xED es donde va realizar los diferentes c\xE1lculos para saber
+        cual es la masa m\xE1s \xF3ptima para el descenso de la bomba. "
+    - texto: "En el tablero se encuentra la f\xF3rmula y los diferentes datos que
+        podr\xE1 utilizar, en este caso, primero vamos a calcular la fuerza con la
+        segunda ley de Newton."
+    - texto: Vamos, el tiempo no espera.
 --- !u!65 &1686558816
 BoxCollider:
   m_ObjectHideFlags: 0

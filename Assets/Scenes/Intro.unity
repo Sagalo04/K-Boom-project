@@ -698,7 +698,7 @@ MonoBehaviour:
   estadoActual: 0
   estados:
   - frases:
-    - texto: "Ingenier@, que bueno que est\xE1 aqu\xED \xA1necesitamos su ayuda! "
+    - texto: "Ingenier@, que bueno que est\xE1 aqu\xED \xA1necesitamos su ayuda!  "
     - texto: "La guerra ya acab\xF3, pero descubrimos que hay una bomba enemiga plantada
         justo a unos metros de nosotros, por lo que tenemos que idear un plan de
         contingencia."
@@ -706,17 +706,17 @@ MonoBehaviour:
         para evitar sufrir da\xF1os. "
     - texto: "El plan que se ha ideado es bajar la bomba a un pozo que conecta con
         un b\xFAnker blindado, por lo que si la bomba explota ah\xED no afectar\xE1
-        a nadie."
+        a nadie.  "
     - texto: "Sin embargo, no puede solo arrojarla al pozo, pues el n\xFAmero de
-        serie de la bomba indica que es un tipo de bomba que al someterse a cierta
-        fuerza har\xE1 que \xE9sta explote. "
+        serie de la bomba indica que es un tipo de bomba que al someterse a una fuerza
+        mayor de 120N har\xE1 que \xE9sta explote.  "
     - texto: "Por lo que como ingeniero debe montar una m\xE1quina de atwood para
         que la bomba pueda descender con una fuerza mucho menor."
     - texto: "Aunque debe tener cuidado con que la fuerza tampoco sea muy baja porque
-        podr\xE1 explotar durante el descenso. "
+        podr\xE1 explotar durante el descenso.  "
     - texto: "El tiempo del que disponen es limitado pues la bomba explotar\xE1 en
         x minutos. Por lo que las tareas a realizar deber\xE1n ser finalizadas en
-        un tiempo determinado sino la bomba simplemente explotar\xE1."
+        un tiempo determinado sino la bomba simplemente explotar\xE1. "
 --- !u!65 &1064456822
 BoxCollider:
   m_ObjectHideFlags: 0
