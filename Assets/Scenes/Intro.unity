@@ -715,7 +715,7 @@ MonoBehaviour:
     - texto: "Aunque debe tener cuidado con que la fuerza tampoco sea muy baja porque
         podr\xE1 explotar durante el descenso.  "
     - texto: "El tiempo del que disponen es limitado pues la bomba explotar\xE1 en
-        x minutos. Por lo que las tareas a realizar deber\xE1n ser finalizadas en
+        52 minutos. Por lo que las tareas a realizar deber\xE1n ser finalizadas en
         un tiempo determinado sino la bomba simplemente explotar\xE1. "
 --- !u!65 &1064456822
 BoxCollider:
