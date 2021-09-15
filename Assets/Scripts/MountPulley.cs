@@ -17,6 +17,7 @@ public class MountPulley : MonoBehaviour
 
     public GameObject MessagePanel;
     public GameObject activador;
+    public GameObject tienda, tiendaOut;
 
     private Item itemBeingPickUp;
 
@@ -32,6 +33,9 @@ public class MountPulley : MonoBehaviour
         { 
             text.color = Color.black;
             Mission4.sprite = Normal;
+            tienda.SetActive(false);
+            tiendaOut.SetActive(true);
+
         }
         SelectItemPickedFromRay();
         if (HasItemTargetted() && (FirstPersonController.item["Masa"] == true && FirstPersonController.item["Polea"] == true && FirstPersonController.item["Cuerda"] == true))
